@@ -12,17 +12,22 @@ matrix_2n=function(A){
   }
 
 inverse=function(A){
-  #create matrix n*2n
-  B=matrix_2n(A)
-  C=rref(B)
-  n=nrow(A)
-  I=matrix(0,nrow=n,ncol=n)
-  for(i in 1:n){
-    for(j in 1:n){
-      I[i,j]=C[i,j+n]
-    }
+  if(det(A)==0){
+    txt="matrix is not invertible"
+    txt
   }
-  I
+  else{
+    B=matrix_2n(A)
+    C=rref(B)
+    n=nrow(A)
+    I=matrix(0,nrow=n,ncol=n)
+    for(i in 1:n){
+      for(j in 1:n){
+        I[i,j]=C[i,j+n]
+      }
+    }
+    I
+  }
 }
   
   
