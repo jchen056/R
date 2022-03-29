@@ -17,3 +17,11 @@ plot(x)
 sum(x==1)#number of sunny days
 sum(x==2)#number of cloudy days
 sum(x==3)#number of rainy days
+
+B=A
+for(n in 1:200){
+  B=B%*%A
+}
+#pi is an eigenvector with lamda=1 of t(P)
+pi1=eigen(t(A))$vector[,1]
+pi1=pi1/sum(pi1)#46% seeing the sun, 32% of cloudy and 20% of rainy
