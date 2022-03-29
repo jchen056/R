@@ -42,3 +42,7 @@ for(i in 1:21){
 D=(B+C)/2
 pi1=eigen(t(A))$vector[,2]#we only care the sec col b/c it has an eigenvalue of 1
 pi1=pi1/sum(pi1)#normalized pi1
+
+#this markov chain resembles binomial distribution
+dbinom(0,size=5,prob=0.5)
+hist(x)
