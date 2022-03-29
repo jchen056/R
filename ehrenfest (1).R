@@ -28,3 +28,17 @@ plot(x)
 #p^l is a matrix of transitioning between states when your path has length l
 A%*%A
 (A%*%A)%*%A
+
+B=A
+for(n in 1:20){
+  B=B%*%A
+}
+C=A
+for(i in 1:21){
+  C=C%*%A
+}
+#B,C even and odd; we care about the average bet the two
+#period of markov chain, has a period of 2 because it is oscillating btw two states
+D=(B+C)/2
+pi1=eigen(t(A))$vector[,2]#we only care the sec col b/c it has an eigenvalue of 1
+pi1=pi1/sum(pi1)#normalized pi1
