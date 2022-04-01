@@ -27,7 +27,7 @@ MCMC=function(f,x,n,sd=0.2){
   M
 }
 
-#here is your odf
+#here is your pdf(1)--------------------------------
 f=function(X){
   s=X[1]
   t=X[2]
@@ -39,3 +39,22 @@ f=function(X){
   }
 }
 A=MCMC(f,c(0,0),5e3)
+
+#here is another pdf(2)-----------------------------
+g=function(a){
+  if((a[1]<1 & a[1]>0) && (a[2]<1 & a[2]>0)){
+    1-a[1]*a[2]
+  }
+  else{
+    0
+  }
+}
+B=MCMC(g,c(0.5,0.5),1e5)
+plot(B)
+count1=0
+for(i in 1:1e5){
+  if(B[i,1]*B[i,1]+B[i,2]*B[i,2]<1){
+    count1=count1+1
+  }
+}
+print(count1/(1e5))
