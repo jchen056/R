@@ -50,4 +50,4 @@ grr=function(X){
   y=X[2]
   c(((2*x-2)/(x*x-2*x+y*y+2)+2*x/(x*x+y*y-2*y+2)),((2*y-2)/(x*x+y*y-2*y+2)+2*y/(x*x-2*x+y*y+2)))
 }
-optim(c(1,2),g)
+optim(c(1,2),g)#optim works rlly well and is stable
