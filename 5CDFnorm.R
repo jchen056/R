@@ -1,6 +1,6 @@
 #hw5: question1
-X1=runif(100000,min=0,max=1)
-X2=runif(100000,min=0,max=1)
+X1=runif(100000,min=0,max=1)#uniform(0,1)
+X2=runif(100000,min=0,max=1)#uniform(0,1)
 Z=X1*X2#product of two indepedent random variables
 PDF(Z,20)
 curve(log(1/x),col="red",add=TRUE)
@@ -40,3 +40,27 @@ CDF.norm=function(t,n){
 }
 print(CDF.norm(1,5))
 pnorm(1)
+
+
+#-----------PDF function
+PDF = function(X,n,y.min = 0,y.max = 1){
+  a = min(X)
+  b = max(X)
+  N = length(X)
+  s = (b-a)/n # spacing of the sub-intervals
+  x = rep(NA,n+1)
+  x.mid = rep(NA,n)
+  for(i in 1:(n+1)){
+    x[i] = a + (i-1)*s
+  }
+  
+  for(i in 1:n){
+    x.mid[i] = (.5)*( x[i+1] + x[i] )
+  }
+  
+  f = rep(NA,n)
+  for(i in 1:n){
+    f[i] = sum( X > x[i] & X < x[i+1] )/(N*s)
+  }
+  plot(x.mid,f,type = "l",ylim = c(y.min,y.max) )
+}
