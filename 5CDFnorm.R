@@ -31,7 +31,7 @@ expp=function(t,n){
   }
   x
 }
-#CDF.norm
+#CDF.norm:standard normal CDF, cumulative prob
 CDF.norm=function(t,n){
   x=oddp(n)
   y=expp(t,n)
